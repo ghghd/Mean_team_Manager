@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="form">
+    <form (submit)="onSubmit()" name="myForm">
+      <p>Player Name:</p>
+      <input type="text" name="newPlayer.name" [(ngModel)]="newPlayer.name" ng-model="data.name" required/>
+      <p>Preferred Position:</p>
+      <input type="text" name="newPlayer.position" [(ngModel)]="newPlayer.position"/> <br>
+      <input type="submit" value="Add Player" ng-disabled="myForm.$invalid"/>
+    </form>
+    <span *ngIf='error'>{{error.text.message}}</span>
+  </div>
+</body>
+</html>

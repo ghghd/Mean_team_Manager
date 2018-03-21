@@ -1,0 +1,10 @@
+span{
+    color: red;
+}
+form{
+    border: 1px solid black;
+    box-shadow: 1px 1px lightgray;
+    width: 300px;
+    padding: 10px;
+    background-color: lightgray;
+}

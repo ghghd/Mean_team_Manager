@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="header">
+    <h1>List</h1><h3><a [routerLink]="['/players/addplayer']">Add Player</a></h3>
+  </div>
+  <div>
+    <table>
+      <tr>
+        <th>Team Name:</th>
+        <th>Position:</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let player of players">
+        <td>{{ player.name}}</td>
+        <td>{{ player.position}}</td>
+        <td><button (click)="delete(player._id, player.name)">Delete</button></td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

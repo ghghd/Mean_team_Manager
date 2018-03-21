@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <h1>Player Status - Game 1</h1>
+  <div>
+      <h3><a [routerLink]="['/status/game/1']">Game 1</a> | <a [routerLink]="['/status/game/2']">Game 2</a> | <a [routerLink]="['/status/game/3']">Game 3</a></h3>
+  </div>
+  <div>
+    <table>
+      <tr>
+        <th>Team Name:</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let player of players">
+        <td>{{ player.name}}</td>
+        <td *ngIf="player.game1 === 'Playing'">
+          <button class="button1" (click)="playing(player._id)" style="background-color: green">Playing</button>
+          <button class="button2" (click)="notPlaying(player._id)" >Not Playing</button>
+          <button class="button3" (click)="undecided(player._id)" >Undecided</button>
+        </td>
+        <td *ngIf="player.game1 === 'Not Playing'">
+          <button class="button1" (click)="playing(player._id)">Playing</button>
+          <button class="button2" (click)="notPlaying(player._id)" style="background-color: red">Not Playing</button>
+          <button class="button3" (click)="undecided(player._id)" >Undecided</button>
+        </td>
+        <td *ngIf="!player.game1">
+          <button class="button1" (click)="playing(player._id)">Playing</button>
+          <button class="button2" (click)="notPlaying(player._id)">Not Playing</button>
+          <button class="button3" (click)="undecided(player._id)" style="background-color:yellow">Undecided</button>
+        </td>
+        <td *ngIf="player.game1 === 'Undecided'">
+          <button class="button1" (click)="playing(player._id)">Playing</button>
+          <button class="button2" (click)="notPlaying(player._id)">Not Playing</button>
+          <button class="button3" (click)="undecided(player._id)" style="background-color:yellow">Undecided</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
